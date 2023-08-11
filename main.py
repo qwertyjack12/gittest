@@ -1,25 +1,12 @@
+from node import Node
+from tree import Tree
 
-def print_hi(name):
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-def binary_tree_width(root):
-    p = root
-    array_nodes = [p]
-    result = []
-    while array_nodes:
-        array_next_nodes = []
-        for el in array_nodes:
-            result += el.data
-            if el.left is not None:
-                array_next_nodes += el.left
-            if el.right is not None:
-                array_next_nodes += el.right
-        array_nodes = array_next_nodes
-    return result
-
-def binary_tree_length(root):
-
-
-if __name__ == '__main__':
-    print_hi('PyCharm')
-    print(1234)
+# arr = [10, 5, 7, 16, 13, 2, 20]
+arr = [20, 5, 24, 2, 16, 11, 18]
+t = Tree()
+for i in arr:
+    t.append(Node(i))
+t.show_tree_width()
+t.del_node(5)
+print()
+t.show_tree_width()
