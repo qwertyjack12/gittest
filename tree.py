@@ -89,6 +89,14 @@ class Tree:
         print(node.data)
         self.show_tree_deep_rnl(node.left)
 
+    def show_tree_deep_test(self, node):
+        if node is None:
+            return None
+
+        self.show_tree_deep_rnl(node.right)
+        self.show_tree_deep_rnl(node.left)
+        print(node.data)
+
     def show_tree_width(self):
         if self.root is None:
             return None
@@ -106,3 +114,26 @@ class Tree:
                     new_nodes_array += [i.right]
             print()
             nodes_array = new_nodes_array
+
+    def show_tree_width_reverse(self):
+        if self.root is None:
+            return None
+
+        p = self.root
+        nodes_array = [p]
+
+        result = []
+
+        while nodes_array:
+            new_nodes_array = []
+            r = []
+            for i in nodes_array:
+                r.append(i.data)
+                if i.left:
+                    new_nodes_array += [i.left]
+                if i.right:
+                    new_nodes_array += [i.right]
+            nodes_array = new_nodes_array
+            result.append(r)
+        for i in result[::-1]:
+            print(*i)
